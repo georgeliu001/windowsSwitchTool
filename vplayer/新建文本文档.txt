@@ -1,0 +1,14 @@
+>>> import win32gui
+>>> hwnd = win32gui.FindWindow('VideoEyeWndClass', None)
+>>> hwnd
+918332
+>>> import win32con
+>>> win32gui.PostMessage(hwnd, win32con.WM_USER + 101, 0, 0)
+>>> win32gui.PostMessage(hwnd, win32con.WM_USER + 100, 0, 0)
+>>> win32gui.PostMessage(hwnd, win32con.WM_USER + 101, 0, 0)
+>>> win32gui.SetForegroundWindow(hwnd)
+>>> win32gui.PostMessage(hwnd, win32con.WM_USER + 100, 0, 0)
+>>> win32gui.SetForegroundWindow(hwnd)
+>>> win32gui.PostMessage(hwnd, win32con.WM_USER + 101, 0, 0)
+>>> win32gui.PostMessage(hwnd, win32con.WM_CLOSE, 0, 0)
+>>>
